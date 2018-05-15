@@ -8,12 +8,17 @@ package escola.repositorio;
 import escola.modelo.disciplina.Disciplina;
 import escola.repositorio.util.FabricaConexao;
 import javax.persistence.EntityManager;
+import org.hibernate.Criteria;
 
 /**
  *
  * @author iuryteixeira
  */
-public class DisciplinaRepositorio {
+public class DisciplinaRepositorio extends RepositorioGenerico {
+
+    public DisciplinaRepositorio() {
+        super(Disciplina.class);
+    }
 
     public void salvar(Disciplina disciplina) {
 
@@ -27,6 +32,14 @@ public class DisciplinaRepositorio {
 
         em.close();
 
+    }
+
+    public Disciplina buscar() {
+        Criteria c = getCriteria();
+        
+        
+        
+        return null;
     }
 
 }

@@ -25,19 +25,19 @@ public class Escola {
     /**
      * @param args the command line arguments
      */
-    public static void main(String[] args) {
-        final String search = "And";
+    public static void main(String... args) {
+        
         List<Professor> professores
-                = professorRepositorio.buscarPorNome(search);
+                = professorRepositorio.buscar("321");
 
         professores.forEach((prof) -> {
-            nomes += " - " + prof.getNome().replace(search, 
-                    "<b>"+search+"</b>") + "\n";
+            nomes += " - " + prof.getNome() +" - "+prof.getCpf()+ "\n";
             for (Titulo titulo : prof.getTitulos()) {
                 nomes += " -- " + titulo.getNivel() + "\n";
             }
         });
-
+         
+        //Professor prof = professorRepositorio.buscarPorCPFComJPQL("843095464564");
         JOptionPane.showMessageDialog(null, nomes);
 
         FabricaConexao.close();
